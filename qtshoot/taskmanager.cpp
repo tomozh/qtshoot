@@ -1,6 +1,6 @@
+#include <typeinfo>
 #include "taskchara.h"
 #include "taskmanager.h"
-
 
 TaskManager::TaskManager()
     : m_myShipPos(0, 0)

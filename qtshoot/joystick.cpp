@@ -1,5 +1,8 @@
 #include "joystick.h"
-#include "windows.h"
+
+#ifdef _WINDOWS
+    #include "windows.h"
+#endif
 
 #define MAX_TRIGGERS    2
 
@@ -12,6 +15,7 @@ Joystick::Joystick()
 
 void Joystick::pool()
 {
+#ifdef _WINDOWS
     bool    upKey;
     bool    downKey;
     bool    leftKey;
@@ -34,6 +38,7 @@ void Joystick::pool()
 
     m_trig[0]   = (::GetAsyncKeyState('Z') != 0);
     m_trig[1]   = (::GetAsyncKeyState('X') != 0);
+#endif
 }
 
 Joystick::StickDir Joystick::getDir() const
